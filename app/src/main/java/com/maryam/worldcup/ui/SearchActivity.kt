@@ -1,12 +1,16 @@
 package com.maryam.worldcup.ui
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import com.maryam.worldcup.R
+import android.view.LayoutInflater
+import com.maryam.worldcup.databinding.ActivitySearchBinding
 
-class SearchActivity : AppCompatActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_search)
+class SearchActivity :BaseActivity<ActivitySearchBinding>(){
+    override val LOG: String="SearchActivity"
+    override val bindingInflater: (LayoutInflater) -> ActivitySearchBinding=ActivitySearchBinding::inflate
+    override fun addCallBacks() {
     }
+
+    override fun setup() {
+    }
+
+
 }
