@@ -4,15 +4,345 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".ui.MainActivity">
 
+    <com.google.android.material.search.SearchBar
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/search_bar_height"
+        android:layout_margin="@dimen/margin24"
+        android:background="@drawable/search_bar"
+        android:backgroundTint="@color/white"
+        android:foregroundTint="@color/white"
+        android:foregroundTintMode="add"
+        android:hint="@string/search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIconTint="@color/light_gray_color"
+        app:strokeColor="@color/light_gray_color"
+        app:strokeWidth="2dp" />
+
     <TextView
+        android:id="@+id/match_details"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:layout_marginTop="@dimen/margin16"
+        android:text="@string/match_details"
+        android:textColor="@color/secondary_black"
+        android:textSize="@dimen/textSize24"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@id/search_bar"
+        app:layout_constraintStart_toStartOf="@id/search_bar"
+        app:layout_constraintTop_toBottomOf="@id/search_bar" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/primary_constraint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/match_details">
+
+        <LinearLayout
+            android:id="@+id/primary_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            android:weightSum="3"
+            app:layout_constraintEnd_toEndOf="@id/primary_constraint_layout"
+            app:layout_constraintStart_toStartOf="@id/primary_constraint_layout"
+            app:layout_constraintTop_toTopOf="@id/primary_constraint_layout">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/home_team_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/team"
+                    app:shapeAppearanceOverlay="@style/Circular" />
+
+                <TextView
+                    android:id="@+id/home_team_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/madrid"
+                    android:textSize="@dimen/textSize16"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/match_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/match_date"
+                    android:textColor="@color/light_gray_color"
+                    android:textSize="@dimen/textSize16" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:weightSum="3"
+                    android:layout_marginTop="@dimen/margin16"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/home_team_full_time_goals"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textStyle="bold"
+                        android:textColor="@color/secondary_black"
+                        android:textSize="@dimen/textSize24" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="@string/score_separator"
+                        android:textSize="@dimen/textSize16"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/away_team_full_time_goals"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:layout_weight="1"
+                        android:text="4"
+                        android:textStyle="bold"
+                        android:textColor="@color/secondary_black"
+                        android:textSize="@dimen/textSize24" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/away_team_photo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/team"
+                    app:shapeAppearanceOverlay="@style/Circular" />
+
+                <TextView
+                    android:id="@+id/away_team_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/madrid"
+                    android:textSize="@dimen/textSize16"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/match_statistic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin32"
+        android:text="@string/match_statistic"
+        android:textColor="@color/secondary_black"
+        android:textSize="@dimen/textSize16"
+        app:layout_constraintEnd_toEndOf="@id/primary_constraint_layout"
+        app:layout_constraintStart_toStartOf="@id/primary_constraint_layout"
+        app:layout_constraintTop_toBottomOf="@id/primary_constraint_layout" />
+
+    <ImageView
+        android:id="@+id/ic_left"
+        android:layout_width="@dimen/margin32"
+        android:layout_height="@dimen/margin32"
+        android:layout_marginEnd="@dimen/margin32"
+        app:layout_constraintBottom_toBottomOf="@+id/match_statistic"
+        app:layout_constraintEnd_toStartOf="@+id/match_statistic"
+        app:layout_constraintHorizontal_bias="0.16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/match_statistic"
+        app:srcCompat="@drawable/ic_arrow_left_24" />
+
+    <ImageView
+        android:id="@+id/ic_right"
+        android:layout_width="@dimen/margin32"
+        android:layout_height="@dimen/margin32"
+        android:layout_marginStart="@dimen/margin32"
+        app:layout_constraintBottom_toBottomOf="@+id/match_statistic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintStart_toEndOf="@+id/match_statistic"
+        app:layout_constraintTop_toTopOf="@+id/match_statistic"
+        app:srcCompat="@drawable/ic_arrow_right_24" />
+
+    <LinearLayout
+        android:id="@+id/secondary_linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margin24"
+        android:orientation="vertical"
+        android:weightSum="8"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/match_statistic">
+
+        <LinearLayout
+            android:id="@+id/first_linear_layout"
+            style="@style/secondaryLinearlayouts">
+            <TextView
+                android:id="@+id/home_team_half_time_goals"
+                style="@style/startSecondaryLinearlayouts"
+                android:text="5"/>
+            <TextView
+                android:id="@+id/half_time_goals"
+                style="@style/centerSecondaryLinearlayouts"
+                android:text="Half-Time Goals"/>
+            <TextView
+                android:id="@+id/away_team_half_time_goals"
+                style="@style/endSecondaryLinearlayouts"
+                android:text="6"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/second_linear_layout"
+            style="@style/secondaryLinearlayouts">
+            <TextView
+                android:id="@+id/home_team_shots"
+                style="@style/startSecondaryLinearlayouts"
+                android:text="2"/>
+            <TextView
+                android:id="@+id/shots"
+                style="@style/centerSecondaryLinearlayouts"
+                android:text="Shots"/>
+            <TextView
+                android:id="@+id/away_team_shots"
+                style="@style/endSecondaryLinearlayouts"
+                android:text="3"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/third_linear_layout"
+            style="@style/secondaryLinearlayouts">
+            <TextView
+                android:id="@+id/home_team_shots_on_target"
+                style="@style/startSecondaryLinearlayouts"
+                android:text="3"/>
+            <TextView
+                android:id="@+id/shots_on_target"
+                style="@style/centerSecondaryLinearlayouts"
+                android:text="Shots on Target"/>
+            <TextView
+                android:id="@+id/away_team_shots_on_target"
+                style="@style/endSecondaryLinearlayouts"
+                android:text="4"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/forth_linear_layout"
+            style="@style/secondaryLinearlayouts">
+            <TextView
+                android:id="@+id/home_team_fouls"
+                style="@style/startSecondaryLinearlayouts"
+                android:text="2"/>
+            <TextView
+                android:id="@+id/fouls"
+                style="@style/centerSecondaryLinearlayouts"
+                android:text="Fouls"/>
+            <TextView
+                android:id="@+id/away_team_fouls"
+                style="@style/endSecondaryLinearlayouts"
+                android:text="6"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fifth_linear_layout"
+            style="@style/secondaryLinearlayouts">
+            <TextView
+                android:id="@+id/home_team_corners"
+                style="@style/startSecondaryLinearlayouts"
+                android:text="0"/>
+            <TextView
+                android:id="@+id/corners"
+                style="@style/centerSecondaryLinearlayouts"
+                android:text="Corners"/>
+            <TextView
+                android:id="@+id/away_team_corners"
+                style="@style/endSecondaryLinearlayouts"
+                android:text="6"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/yellow_cardsth_linear_layout"
+            style="@style/secondaryLinearlayouts">
+            <TextView
+                android:id="@+id/home_team_yellow_cards"
+                style="@style/startSecondaryLinearlayouts"
+                android:text="3"/>
+            <TextView
+                android:id="@+id/yellow_cards"
+                style="@style/centerSecondaryLinearlayouts"
+                android:text="Yellow Card"/>
+            <TextView
+                android:id="@+id/away_team_yellow_cards"
+                style="@style/endSecondaryLinearlayouts"
+                android:text="1"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/red_cardsth_linear_layout"
+            style="@style/secondaryLinearlayouts">
+
+            <TextView
+                android:id="@+id/home_team_red_cards"
+                style="@style/startSecondaryLinearlayouts"
+                android:layout_height="wrap_content"
+                android:text="5" />
+            <TextView
+                android:id="@+id/red_cards"
+                style="@style/centerSecondaryLinearlayouts"
+                android:text="Red Card"/>
+            <TextView
+                android:id="@+id/away_team_red_cards"
+                style="@style/endSecondaryLinearlayouts"
+                android:text="3"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

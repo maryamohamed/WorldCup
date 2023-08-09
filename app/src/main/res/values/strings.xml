@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">World Cup</string>
+    <string name="search">Search</string>
+    <string name="match_details">Match Details</string>
+    <string name="madrid">Madrid</string>
+    <string name="score_separator">-</string>
+    <string name="match_date">27 Aug 22</string>
+    <string name="match_statistic">Match Statistic</string>
 </resources>

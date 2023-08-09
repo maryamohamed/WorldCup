@@ -1,9 +1,49 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.WorldCup" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:statusBarColor">@color/white</item>
     </style>
 
     <style name="Theme.WorldCup" parent="Base.Theme.WorldCup" />
+
+    <style name="SearchViewStyle" parent="TextAppearance.Material3.SearchBar">
+        <item name="android:textColorHint">@color/light_gray_color</item>
+    </style>
+    <style name="Circular">
+    <item name="cornerSize">50%</item>
+    </style>
+    <style name="secondaryLinearlayouts">
+        <item name="android:layout_marginBottom">@dimen/margin16</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/margin32</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:weightSum">2</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="startSecondaryLinearlayouts">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">start</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/secondary_black</item>
+        <item name="android:layout_weight">0.5</item>
+    </style>
+    <style name="centerSecondaryLinearlayouts">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/dark_gray_color</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+    <style name="endSecondaryLinearlayouts">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">end</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/secondary_black</item>
+        <item name="android:layout_weight">0.5</item>
+    </style>
+
 </resources>
